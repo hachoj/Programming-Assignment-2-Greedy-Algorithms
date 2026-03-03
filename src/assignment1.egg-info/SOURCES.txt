@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/assignment1/__init__.py
+src/assignment1/gale_shapely.py
+src/assignment1/io_util.py
+src/assignment1/verifier.py
+src/assignment1.egg-info/PKG-INFO
+src/assignment1.egg-info/SOURCES.txt
+src/assignment1.egg-info/dependency_links.txt
+src/assignment1.egg-info/top_level.txt
+tests/test_verifier.py
