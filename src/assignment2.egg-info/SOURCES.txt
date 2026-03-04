@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+src/assignment1/__init__.py
+src/assignment2.egg-info/PKG-INFO
+src/assignment2.egg-info/SOURCES.txt
+src/assignment2.egg-info/dependency_links.txt
+src/assignment2.egg-info/top_level.txt
+tests/test.py
