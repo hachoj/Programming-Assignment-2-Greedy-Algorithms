@@ -1,6 +1,3 @@
-from ast import Not
-
-
 class Cache:
     def __init__(self, capacity: int):
         self.capacity = capacity 
