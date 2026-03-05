@@ -2,7 +2,7 @@ import argparse
 import os
 from pathlib import Path
 
-from cache import FIFOCache, LRUCache, OPTFFCache
+from src.cache import FIFOCache, LRUCache, OPTFFCache
 
 
 def main():
