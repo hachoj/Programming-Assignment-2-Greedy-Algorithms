@@ -29,13 +29,22 @@ class FIFOCache(Cache):
             self.cache.append(x)
             return False
 
+
 class LRUCache(Cache):
     def __init__(self, capacity: int):
         super().__init__(capacity)
         self.name = "LRU"
 
     def request(self, x: int) -> bool:
-        raise NotImplementedError
+        if x in self.cache:
+            self.cache.remove(x)
+            self.cache.append(x)
+            return True
+        else:
+            if len(self.cache) >= self.capacity:
+                self.cache.pop(0)
+            self.cache.append(x)
+            return False
 
 
 class OPTFFCache(Cache):
