@@ -2,7 +2,7 @@ import argparse
 import os
 from pathlib import Path
 
-from cache import FIFOCache, LRUCache, OPTFFCache
+from src.cache import FIFOCache, LRUCache, OPTFFCache
 
 
 def main():
@@ -13,8 +13,6 @@ def main():
     input_path = Path(args.input)
     if not input_path.exists():
         raise FileNotFoundError(f"Input path does not exist: {args.input}")
-    else:
-        print(f"Loading data from: {input_path}") 
 
     # --- read the inputs ---
     with open(input_path) as f:
@@ -23,11 +21,10 @@ def main():
         k, m = km.split(" ")
         k, m = int(k), int(m)
         accesses = [int(x) for x in accesses.split(" ")]
-        print(f"k: {k}, m: {m}, accesses: {accesses}")
     
     FIFO_cache = FIFOCache(capacity=k)
     LRU_cache = LRUCache(capacity=k)
-    OPTFF_cache = OPTFFCache(capacity=k)
+    OPTFF_cache = OPTFFCache(capacity=k, requests=accesses)
 
     caches = [FIFO_cache, LRU_cache, OPTFF_cache]
 
@@ -36,9 +33,13 @@ def main():
         for access in accesses:
             if not cache.request(access):
                 num_misses += 1
-        print(f"{cache} : {num_misses}")
 
-
+        if str(cache) == "FIFO":
+            print(f"FIFO  : {num_misses}")
+        elif str(cache) == "LRU":
+            print(f"LRU   : {num_misses}")
+        else:
+            print(f"OPTFF : {num_misses}")
 
 
 if __name__ == "__main__":
