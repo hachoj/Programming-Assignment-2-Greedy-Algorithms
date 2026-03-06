@@ -8,7 +8,7 @@ Create a conda/mamba env or venv with python>=3.9
 
 Once that environment is active, run,
 
-pip install -e
+pip install -e .
 from the project root.
 
 
